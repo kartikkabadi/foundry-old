@@ -2,9 +2,9 @@
 
 **Purpose:** Single SSOT mapping GitHub issues → code on `main` → test proof → status. Do not trust planning docs without this table or a fresh code read.
 
-**Last verified:** `cursor/full-cli-verification-c260` — `npm test` **233+ pass**, `scripts/full-cli-harness.sh` exit 0, live Composer plan verified in Cloud.
+**Last verified:** 2026-06-24 — `npm test` **250/250 pass**, `scripts/demo.sh` exit 0, `FOUNDRY_BUILD_MOCK=1 scripts/demo-build.sh` exit 0.
 
-**Canonical open work:** verify on GitHub — slices #32, #34, #42–#48 targeted in PR `cursor/v5-open-issues-c260`. Duplicates #51–#90 are closed.
+**Canonical open work:** all slices #32, #34, #37, #42–#48, #50 are implemented on `main` with test proof (see rows below); GitHub issues closed 2026-06-24 after AC verification. Duplicates #51–#90 are closed.
 
 **Related:** [V2-V5_GITHUB_ISSUES.md](V2-V5_GITHUB_ISSUES.md), [../agents/README.md](../agents/README.md), [../agents/issue-tracker.md](../agents/issue-tracker.md). Historical alignment snapshot: `docs/archive/TRACKER_ALIGNMENT_2026-05-26.md` (pre–PR #103).
 
@@ -85,7 +85,7 @@
 | [34](https://github.com/kartikkabadi/foundry/issues/34) | Comms contracts | `packages/planner/src/build/publish-handoffs.ts` | `tests/comms-contracts.test.ts`, `tests/build-handoffs.test.ts` | **DONE** — handoff template + `handoff_published` on build |
 | [35](https://github.com/kartikkabadi/foundry/issues/35) | Loop detection + budget | `packages/core/src/loop/detection.ts`, `packages/planner/src/plan/agent-pass-policy.ts` | `tests/loop-detection.test.ts`, `tests/agent-pass-policy.test.ts`, `tests/budget-profiles.test.ts` | **DONE** |
 | [36](https://github.com/kartikkabadi/foundry/issues/36) | Rate-limit checkpoint | `packages/adapters/src/agent-errors.ts`, `packages/planner/src/plan/orchestrate.ts`, `packages/planner/src/build/orchestrate.ts` | `tests/rate-limit-checkpoint.test.ts` | **DONE** |
-| [37](https://github.com/kartikkabadi/foundry/issues/37) | Conflict artifacts | `packages/core/src/conflicts/conflict.ts` | `tests/conflict-artifacts.test.ts` | **PARTIAL** — wire into live plan/build/status blocking |
+| [37](https://github.com/kartikkabadi/foundry/issues/37) | Conflict artifacts | `packages/core/src/conflicts/conflict.ts`, `packages/planner/src/plan/orchestrate.ts`, `packages/planner/src/build/team-preflight.ts`, `packages/core/src/state/run-store.ts` | `tests/conflict-artifacts.test.ts`, `tests/status-conflicts.test.ts`, `tests/swarm-disagreement.test.ts` | **DONE** — wired into plan (approval block + `conflict_raised` event), build (`assertNoBlockingConflicts`), status (`formatRunSummary` open count), approve (run-store gate) |
 | [38](https://github.com/kartikkabadi/foundry/issues/38) | Browser capture adapter | `packages/adapters/src/browser-capture.ts`, `packages/doctor/src/checks/browser-capture.ts`, `packages/cli/src/commands/plan.ts` | `tests/browser-capture.test.ts` | **DONE** |
 | [39](https://github.com/kartikkabadi/foundry/issues/39) | CuaDriver adapter | `packages/adapters/src/cuadriver.ts`, `packages/doctor/src/checks/cuadriver-computer-use.ts` | `tests/cuadriver-adapter.test.ts` | **DONE** |
 | [40](https://github.com/kartikkabadi/foundry/issues/40) | Pi runtime adapter | `packages/adapters/src/pi-runtime.ts`, `packages/doctor/src/checks/pi-runtime.ts` | `tests/pi-runtime-adapter.test.ts` | **DONE** |
@@ -97,7 +97,7 @@
 | # | Slice | Primary code | Test proof | Status |
 |---|-------|--------------|------------|--------|
 | [41](https://github.com/kartikkabadi/foundry/issues/41) | TUI | `packages/cli/src/commands/tui.ts`, `packages/cli/src/tui/render.ts` | `tests/tui-render.test.ts` | **DONE** |
-| [42](https://github.com/kartikkabadi/foundry/issues/42) | Background daemon | `packages/cli/src/commands/daemon.ts`, `daemon/process.ts` | `tests/daemon-lifecycle.test.ts` | **DONE** |
+| [42](https://github.com/kartikkabadi/foundry/issues/42) | Background daemon + attach/detach | `packages/cli/src/commands/daemon.ts`, `daemon/process.ts`, `commands/tui.ts` | `tests/daemon-lifecycle.test.ts`, `tests/tui-daemon-attach.test.ts` | **DONE** — `daemon start [plan\|build ...]` runs detached with `daemon.log`; `foundry tui` re-attaches (pid + command + log tail); stop cleans pid/heartbeat/command |
 | [43](https://github.com/kartikkabadi/foundry/issues/43) | macOS notifications | `packages/adapters/src/notify/dispatch.ts`, `config/notifications.ts` | `tests/notifications-config.test.ts` | **DONE** |
 | [44](https://github.com/kartikkabadi/foundry/issues/44) | Webhook notifications | `packages/adapters/src/notify/webhook.ts`, `config/notifications.ts` | `tests/notifications-config.test.ts` | **DONE** |
 | [45](https://github.com/kartikkabadi/foundry/issues/45) | Marathon policy | `marathon/policy.ts`, `plan/agent-pass-policy.ts` | `tests/agent-pass-policy.test.ts` | **DONE** |

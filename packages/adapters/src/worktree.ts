@@ -1,5 +1,5 @@
 import { execFileSync } from 'node:child_process';
-import { existsSync, realpathSync, rmSync } from 'node:fs';
+import { existsSync, mkdirSync, realpathSync, rmSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 
 export interface WorktreeInfo {
@@ -116,7 +116,7 @@ export function defaultWorktreeBranch(issueNumber: number): string {
 export function ensureWorktreeParent(projectRoot: string): string {
   const parent = join(projectRoot, '.worktrees');
   if (!existsSync(parent)) {
-    execFileSync('mkdir', ['-p', parent], { cwd: projectRoot });
+    mkdirSync(parent, { recursive: true });
   }
   return parent;
 }

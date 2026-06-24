@@ -104,7 +104,6 @@ See [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) for Pi, Cursor, Composer,
 ## V1 Non-Goals
 
 - Full autonomous Build Mode execution
-- Background daemon/job runner
 - Premium model integrations
 - Automatic GitHub issue creation without approval
 
@@ -117,11 +116,11 @@ See [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) for Pi, Cursor, Composer,
 
 ## Current Status
 
-Verified 2026-05-25 (recovery pass):
+Verified 2026-06-24:
 
 - **PR #103 merged** on `main` (`cf1e30c`; tracker reconciled at `09eb047`).
-- **219/219 tests** pass; `scripts/demo.sh` and `FOUNDRY_BUILD_MOCK=1 scripts/demo-build.sh` exit 0.
-- **Open issues (narrowed):** #32, #34, #37, #42–#48, #50. Closed via PR #103: #31, #33, #35, #36, #38–#41, #49 — do not rebuild.
+- **250/250 tests** pass; `scripts/demo.sh` and `FOUNDRY_BUILD_MOCK=1 scripts/demo-build.sh` exit 0.
+- **V1–V5 slices complete:** #1–#50 implemented on `main` with test proof. See [VERIFIED_STATE.md](docs/planning/VERIFIED_STATE.md) for the issue→code→test map.
 - **Agents:** [docs/agents/README.md](docs/agents/README.md) · **Issue SSOT:** [docs/planning/VERIFIED_STATE.md](docs/planning/VERIFIED_STATE.md)
 
 **Repo alignment (2026-05):**

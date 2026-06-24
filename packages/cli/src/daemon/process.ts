@@ -1,5 +1,5 @@
 import { spawn } from 'node:child_process';
-import { existsSync, mkdirSync, readFileSync, unlinkSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, openSync, readFileSync, unlinkSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -21,17 +21,25 @@ export function spawnDetachedDaemon(options: {
   projectRoot: string;
   pidPath: string;
   heartbeatPath: string;
+  logPath?: string;
+  commandArgs?: string[];
 }): number {
-  const child = spawn(
-    process.execPath,
-    [options.cliPath, 'daemon', 'run', '--project', options.projectRoot],
-    {
-      detached: true,
-      stdio: 'ignore',
-      cwd: options.projectRoot,
-      env: { ...process.env },
-    },
-  );
+  const daemonRunArgs = ['daemon', 'run', '--project', options.projectRoot];
+  if (options.commandArgs && options.commandArgs.length > 0) {
+    daemonRunArgs.push('--command', ...options.commandArgs);
+  }
+  const stdio: import('node:child_process').StdioOptions = 'ignore';
+  let logFd: number | undefined;
+  if (options.logPath) {
+    ensureParentDir(options.logPath);
+    logFd = openSync(options.logPath, 'a');
+  }
+  const child = spawn(process.execPath, [options.cliPath, ...daemonRunArgs], {
+    detached: true,
+    stdio: logFd !== undefined ? ['ignore', logFd, logFd] : stdio,
+    cwd: options.projectRoot,
+    env: { ...process.env },
+  });
   child.unref();
   const pid = child.pid;
   if (!pid || pid <= 0) {

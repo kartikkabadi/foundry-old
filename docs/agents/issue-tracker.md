@@ -25,14 +25,14 @@ Run `gh issue view <number> --comments`.
 
 Published issues #1–#8 with full AC live in `docs/planning/GITHUB_ISSUE_BREAKDOWN.md` (GitHub issue bodies may be truncated).
 
-## Live queue (2026-05-25, post–PR #103)
+## Live queue (2026-06-24, post–V5 close-out)
 
 Confirm on GitHub before starting. Full issue→code rows: [VERIFIED_STATE.md](../planning/VERIFIED_STATE.md).
 
 | Track | Issues | Agent rule |
 |-------|--------|------------|
-| **Open for new work** | [#32](https://github.com/kartikkabadi/foundry/issues/32), [#34](https://github.com/kartikkabadi/foundry/issues/34), [#37](https://github.com/kartikkabadi/foundry/issues/37), [#42](https://github.com/kartikkabadi/foundry/issues/42)–[#48](https://github.com/kartikkabadi/foundry/issues/48), [#50](https://github.com/kartikkabadi/foundry/issues/50) | Pick **exactly one** per session |
-| **Closed via PR #103 (do not re-implement)** | [#31](https://github.com/kartikkabadi/foundry/issues/31), [#33](https://github.com/kartikkabadi/foundry/issues/33), [#35](https://github.com/kartikkabadi/foundry/issues/35), [#36](https://github.com/kartikkabadi/foundry/issues/36), [#38](https://github.com/kartikkabadi/foundry/issues/38)–[#41](https://github.com/kartikkabadi/foundry/issues/41), [#49](https://github.com/kartikkabadi/foundry/issues/49) | Code landed on `main` |
+| **Open for new work** | _None_ — V1–V5 (#1–#50) all implemented and closed | Pick new work via a fresh PRD |
+| **Closed (do not re-implement)** | [#31](https://github.com/kartikkabadi/foundry/issues/31)–[#50](https://github.com/kartikkabadi/foundry/issues/50) | Code landed on `main` |
 | **Duplicates** | #51–#90 | Closed — ignore |
 
 Historical index: `docs/planning/V2-V5_GITHUB_ISSUES.md`. V1–V3 (#1–#30) are done on `main`.

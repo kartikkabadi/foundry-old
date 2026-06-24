@@ -76,7 +76,7 @@ This is a standalone TypeScript/Node CLI — no servers, databases, or Docker re
 
 **Key commands** (all from repo root):
 - `npm run build` — TypeScript compilation (`tsc -b --force`)
-- `npm test` — builds then runs 219 tests (all mocked, no network/API key needed)
+- `npm test` — builds then runs 250 tests (all mocked, no network/API key needed)
 - `npm run typecheck` — alias for build
 - `bash scripts/demo.sh` — end-to-end CLI smoke (mock Composer, no API key)
 - `FOUNDRY_BUILD_MOCK=1 bash scripts/demo-build.sh` — build-mode smoke (mock)
