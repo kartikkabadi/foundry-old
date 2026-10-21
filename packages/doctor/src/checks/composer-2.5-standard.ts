@@ -33,7 +33,7 @@ export async function checkComposer25Standard(
       id: 'composer-2.5-standard',
       status: 'fail',
       message: '@cursor/sdk required for Composer smoke.',
-      repair: 'Run `sfw npm install @cursor/sdk`, then `npm rebuild sqlite3`, and re-run with --deep.',
+      repair: 'Run `sfw npm install @cursor/sdk` and re-run with --deep.',
     };
   }
 

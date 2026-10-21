@@ -8,7 +8,7 @@ Foundry is a planning-first Pi setup/runtime that uses Cursor Composer 2.5 as th
 
 Foundry uses the Cursor SDK for Composer 2.5 checks and plan mode.
 
-**Node:** use Node 20 (see `.nvmrc`). Foundry pins `engines.node` to `>=20 <23`.
+**Node:** use Node 22.13.0 or later (see `.nvmrc`, which selects Node 22). Foundry requires `engines.node >=22.13.0` for the patched Cursor SDK.
 
 **Cursor API key** (resolution order):
 
@@ -91,7 +91,7 @@ FOUNDRY_DEMO_LIVE_PLAN=1 bash scripts/demo.sh   # optional live Composer
 
 ## Troubleshooting
 
-See [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) for Pi, Cursor, Composer, GitHub, and Node/sqlite3 failures.
+See [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) for Pi, Cursor, Composer, GitHub, and Node/SDK failures.
 
 ## Core Constraints
 

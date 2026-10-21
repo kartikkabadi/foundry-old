@@ -10,8 +10,6 @@ if [ -f "$ROOT/.nvmrc" ] && command -v fnm >/dev/null 2>&1; then
   fnm use >/dev/null 2>&1 || true
 fi
 
-echo "==> rebuild sqlite3 (optional, for live @cursor/sdk)"
-npm rebuild sqlite3 --silent 2>/dev/null || true
 
 echo "==> build"
 npm run build

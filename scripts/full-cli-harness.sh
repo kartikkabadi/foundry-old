@@ -4,7 +4,7 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
-. "${NVM_DIR:-$HOME/.nvm}/nvm.sh" 2>/dev/null && nvm use 20 >/dev/null 2>&1 || true
+. "${NVM_DIR:-$HOME/.nvm}/nvm.sh" 2>/dev/null && nvm use >/dev/null 2>&1 || true
 
 npm run build >/dev/null
 CLI="$ROOT/packages/cli/bin/foundry.js"

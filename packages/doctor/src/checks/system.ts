@@ -23,7 +23,7 @@ export function checkSystem(deps: DoctorDeps): DoctorCheck {
       id: 'system',
       status: 'fail',
       message: `Unsupported platform: ${platform || 'unknown'}`,
-      repair: 'Use macOS, Linux, or Windows with Node 20+.',
+      repair: 'Use macOS, Linux, or Windows with Node 22.13.0+.',
     };
   }
 

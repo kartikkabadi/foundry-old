@@ -46,7 +46,7 @@ function mockDeps(overrides: Partial<DoctorDeps> = {}): DoctorDeps {
   const base: DoctorDeps = {
     platform: 'darwin',
     arch: 'arm64',
-    nodeVersion: 'v22.0.0',
+    nodeVersion: 'v22.13.0',
     cwd: tmpRoot,
     env: { CURSOR_API_KEY: 'test-key' },
     foundryRoot: tmpRoot,
@@ -94,8 +94,17 @@ describe('doctor checks (injected deps, no network)', () => {
     assert.strictEqual(checkNodePackageManager(deps).status, 'fail');
   });
 
-  it('checkFoundryInstall passes with Node 20+ and built CLI', () => {
+  it('checkFoundryInstall passes with Node 22.13+ and built CLI', () => {
     assert.strictEqual(checkFoundryInstall(mockDeps()).status, 'pass');
+  });
+
+  it('checkFoundryInstall enforces the Cursor SDK runtime minimum', () => {
+    for (const nodeVersion of ['v20.20.0', 'v22.12.0', 'invalid']) {
+      assert.strictEqual(checkFoundryInstall(mockDeps({ nodeVersion })).status, 'fail');
+    }
+    for (const nodeVersion of ['v22.13.0', 'v24.19.0']) {
+      assert.strictEqual(checkFoundryInstall(mockDeps({ nodeVersion })).status, 'pass');
+    }
   });
 
   it('checkFoundryInstall fails when dist/cli.js missing', () => {

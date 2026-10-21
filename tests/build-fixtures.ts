@@ -132,7 +132,7 @@ export function mockDoctorDeps(projectRoot: string): DoctorDeps {
   return {
     platform: 'darwin',
     arch: 'arm64',
-    nodeVersion: 'v22.0.0',
+    nodeVersion: 'v22.13.0',
     cwd: projectRoot,
     env: { CURSOR_API_KEY: 'test-key' },
     foundryRoot: root,

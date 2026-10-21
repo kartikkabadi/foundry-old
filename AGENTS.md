@@ -72,7 +72,7 @@ End every piece of work with: what changed, what was verified (commands/output),
 
 This is a standalone TypeScript/Node CLI — no servers, databases, or Docker required.
 
-**Node version:** Node 20 is required (`.nvmrc`). The update script handles `nvm install 20`. Always source nvm before running commands: `. ~/.nvm/nvm.sh && nvm use 20`.
+**Node version:** Node 22.13.0 or later is required by the patched Cursor SDK (`.nvmrc` selects Node 22). Install with `nvm install 22`; when nvm is available, source it before running commands: `. ~/.nvm/nvm.sh && nvm use`.
 
 **Key commands** (all from repo root):
 - `npm run build` — TypeScript compilation (`tsc -b --force`)
@@ -81,7 +81,7 @@ This is a standalone TypeScript/Node CLI — no servers, databases, or Docker re
 - `bash scripts/demo.sh` — end-to-end CLI smoke (mock Composer, no API key)
 - `FOUNDRY_BUILD_MOCK=1 bash scripts/demo-build.sh` — build-mode smoke (mock)
 
-**sqlite3 native module:** `@cursor/sdk` depends on `sqlite3`. The postinstall script and `npm rebuild sqlite3` handle this. If you see `MODULE_NOT_FOUND` errors for sqlite3 after switching Node versions, run `npm rebuild sqlite3`.
+**Cursor SDK:** The patched SDK no longer depends on sqlite3; no native sqlite3 rebuild is required.
 
 **No `sfw` in Cloud:** CI uses Socket's `sfw` wrapper for `npm`. In Cloud Agent VMs, `sfw` is not available — use `npm` directly.
 
