@@ -22,7 +22,7 @@ export function checkCursorSdk(deps: DoctorDeps): DoctorCheck {
       id: 'cursor-sdk',
       status: 'fail',
       message: '@cursor/sdk is not installed.',
-      repair: 'Run `sfw npm install @cursor/sdk` in the Foundry repo, then `npm rebuild sqlite3`.',
+      repair: 'Run `sfw npm install @cursor/sdk` in the Foundry repo.',
     };
   }
 

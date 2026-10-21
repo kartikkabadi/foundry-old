@@ -54,7 +54,7 @@ function mockDoctorDeps(): DoctorDeps {
   return {
     platform: 'darwin',
     arch: 'arm64',
-    nodeVersion: 'v22.0.0',
+    nodeVersion: 'v22.13.0',
     cwd: tmpRoot,
     env: { CURSOR_API_KEY: 'test-key' },
     foundryRoot: tmpRoot,

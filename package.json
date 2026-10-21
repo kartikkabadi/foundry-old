@@ -13,7 +13,6 @@
   },
   "scripts": {
     "build": "tsc -b --force",
-    "postinstall": "npm run install --prefix node_modules/sqlite3 --silent 2>/dev/null || npm rebuild sqlite3 --silent 2>/dev/null || true",
     "test": "npm run build && TSX_TSCONFIG_PATH=tsconfig.test.json node --import tsx --test tests/*.test.ts",
     "typecheck": "npm run build"
   },
@@ -23,7 +22,7 @@
     "typescript": "^5.8.0"
   },
   "engines": {
-    "node": ">=20 <23"
+    "node": ">=22.13.0"
   },
   "dependencies": {
     "@cursor/sdk": "^1.0.40",

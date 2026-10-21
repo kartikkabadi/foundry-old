@@ -34,7 +34,6 @@ else
   npm ci
 fi
 
-npm rebuild sqlite3 2>/dev/null || true
 npm run build
 
 if command -v npm >/dev/null 2>&1; then

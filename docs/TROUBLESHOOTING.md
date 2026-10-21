@@ -2,12 +2,11 @@
 
 ## Node version
 
-Use **Node 20 LTS** (see `.nvmrc`):
+Use **Node 22.13.0 or later** (see `.nvmrc`):
 
 ```bash
 fnm use   # or nvm use
 npm run build
-npm rebuild sqlite3   # if @cursor/sdk fails to load
 ```
 
 ## Cursor API key
@@ -24,15 +23,9 @@ foundry doctor --for plan
 foundry doctor --for plan --deep   # live Composer smoke (~60s)
 ```
 
-## sqlite3 / @cursor/sdk
+## Cursor SDK
 
-If doctor reports bindings errors:
-
-```bash
-npm run postinstall
-# or
-cd node_modules/sqlite3 && npm run install
-```
+Use Node 22.13.0 or later, then run `npm ci` and `npm run build`. The patched SDK no longer uses sqlite3 or requires native module rebuilds.
 
 ## Pi CLI
 
